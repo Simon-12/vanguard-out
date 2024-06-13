@@ -137,14 +137,14 @@ ApplicationWindow {
                 text: "Website"
                 Layout.fillWidth: true
                 onClicked: Qt.openUrlExternally(
-                               "https://github.com/Simon-12/tidy-images") // TODO link
+                               "https://github.com/Simon-12/vanguard-out")
             }
 
             Button {
                 text: "Report Issues"
                 Layout.fillWidth: true
                 onClicked: Qt.openUrlExternally(
-                               "https://github.com/Simon-12/tidy-images") // TODO link
+                               "https://github.com/Simon-12/vanguard-out/issues")
             }
         }
     }
