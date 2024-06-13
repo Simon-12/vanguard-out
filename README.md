@@ -6,7 +6,7 @@ Tool to temporarily stop and disable Riot Vanguard.
 
 ## Features
 
-Inspired by @AndrewMast scripts: [Commands to temporarily stop Riot Vanguard](https://gist.github.com/AndrewMast/742ac7e07c37096017e907b0fd8ec7bb#file-readme-md).  
+Inspired by [@AndrewMast](https://gist.github.com/AndrewMast) scripts: [Commands to temporarily stop Riot Vanguard](https://gist.github.com/AndrewMast/742ac7e07c37096017e907b0fd8ec7bb#file-readme-md).  
 If you don't like that Riot Vanguard is running in the background on your system all the time, just stop and disable it.  
 The tool is not perfect, but it does the job. Feedback and suggestions are welcome.
 
@@ -53,7 +53,7 @@ $Shortcut.Save();
 
 ## Installation
 - Tested on Windows 11 with Qt version 6.7.0.
-- For the portable version download the latest release from [github/tidy-images/releases](https://github.com/Simon-12/tidy-images/releases) and unzip it.
+- For the portable version download the latest release from [github/vanguard-out/releases](https://github.com/Simon-12/vanguard-out/releases) and unzip it.
 - To build from source, you can also download the source code from releases.
 - `vanguard-cli`: dependency [github/CLI11](https://github.com/CLIUtils/CLI11) (no Qt required).
 - `vanguard-gui`: the easiest way is to open `CMakeLists.txt` in your Qt Creator and configure with one of your installed Qt kits.
