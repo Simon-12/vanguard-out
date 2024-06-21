@@ -52,8 +52,8 @@ $Shortcut.Save();
 ```
 sc config vgc start= demand & sc config vgk start= system
 powershell Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Riot Vanguard" -Value "C:\Program Files\Riot Vanguard\vgtray.exe"
-
 ```
+
 ##### Deactivate
 ```
 sc config vgc start= disabled & sc config vgk start= disabled & net stop vgc & net stop vgk & taskkill /IM vgtray.exe
