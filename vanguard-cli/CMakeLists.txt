@@ -16,4 +16,12 @@ endif()
 # # Alternative if installed
 # find_package(CLI11 CONFIG REQUIRED)
 
+# mINI
+# set(mINI_INCLUDE_DIR "")
+if(DEFINED mINI_INCLUDE_DIR)
+    include_directories(${mINI_INCLUDE_DIR})
+else()
+    message(WARNING "mINI_INCLUDE_DIR is not defined!")
+endif()
+
 add_executable(vanguard-cli main.cpp)

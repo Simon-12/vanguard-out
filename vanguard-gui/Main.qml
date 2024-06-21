@@ -117,7 +117,7 @@ ApplicationWindow {
 
             Label {
                 text: "<font size='+1'><center><b>" + "vanguard-out"
-                      + "</b></font></center>" + "<center>Version: 0.1.0</center>"
+                      + "</b></font></center>" + "<center>Version: 0.2.0</center>"
                       + "<br>" + "Tool to temporarily stop and disable Riot Vanguard"
                 font.pointSize: 10
                 textFormat: Text.RichText

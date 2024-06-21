@@ -3,9 +3,9 @@
 
 #include <QDir>
 #include <QFile>
-#include <QFileSystemWatcher>
 #include <QObject>
 #include <QProcess>
+#include <QSettings>
 #include <QTextStream>
 
 class Controller : public QObject {
@@ -39,7 +39,7 @@ private:
     bool m_disabled;
     QString m_path;
     QString m_cliPath;
-    QString m_statePath;
+    QString m_settingsPath;
     QString m_autoPath;
     QProcess *m_process;
 };
