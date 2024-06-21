@@ -1,4 +1,6 @@
 vanguard-cli/.vscode/
 vanguard-cli/CMakePresets.json
 build/
+vanguard-cli/build-debug/
+vanguard-cli/build-release/
 CMakeLists.txt.user

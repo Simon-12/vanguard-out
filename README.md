@@ -47,6 +47,19 @@ $Shortcut.Arguments = "--check";
 $Shortcut.Save();
 ```
 
+#### Used Commands
+##### Activate
+```
+sc config vgc start= demand & sc config vgk start= system
+powershell Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Riot Vanguard" -Value "C:\Program Files\Riot Vanguard\vgtray.exe"
+```
+
+##### Deactivate
+```
+sc config vgc start= disabled & sc config vgk start= disabled & net stop vgc & net stop vgk & taskkill /IM vgtray.exe
+powershell Remove-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Riot Vanguard"
+```
+
 ## vanguard-gui
 
 <img src="./docs/vanguard-gui.gif" width="30%"/>
@@ -55,5 +68,5 @@ $Shortcut.Save();
 - Tested on Windows 11 with Qt version 6.7.0.
 - For the portable version download the latest release from [github/vanguard-out/releases](https://github.com/Simon-12/vanguard-out/releases) and unzip it.
 - To build from source, you can also download the source code from releases.
-- `vanguard-cli`: dependency [github/CLI11](https://github.com/CLIUtils/CLI11) (no Qt required).
+- `vanguard-cli`: dependencies [github/CLI11](https://github.com/CLIUtils/CLI11) and [github/mINI](https://github.com/metayeti/mINI) (there is no Qt required).
 - `vanguard-gui`: the easiest way is to open `CMakeLists.txt` in your Qt Creator and configure with one of your installed Qt kits.

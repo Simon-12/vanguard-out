@@ -64,7 +64,7 @@ void Controller::startController(const QString &path) {
     // Paths
     QDir dir(path);
     m_cliPath = dir.filePath("vanguard-cli.exe");
-    m_statePath = dir.filePath("state");
+    m_settingsPath = dir.filePath("settings.ini");
 
     // Autostart path
     QProcess process;
@@ -80,24 +80,11 @@ void Controller::startController(const QString &path) {
     }
     m_process->setProgram(m_cliPath);
 
-    // Check autostart
-    if (!QFile::exists(m_autoPath + "\\vanguard-cli.lnk")) {
-        return;  // Exit
-    }
-
-    // Check state file
-    if (dir.exists(m_statePath)) {
-        // Read state file
-        QFile file(m_statePath);
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            qInfo() << "Error: could not open state file";
-            m_disabled = true;
-            return;  // Exit
-        }
-        QTextStream in(&file);
-        QString firstLine = in.readLine();
-        file.close();
-        m_state = firstLine.startsWith("activate");
+    // Read settings file
+    if (dir.exists(m_settingsPath)) {
+        QSettings settings(m_settingsPath, QSettings::IniFormat);
+        QString state = settings.value("settings/state").toString();
+        m_state = state.startsWith("activate");
     }
 }
 
