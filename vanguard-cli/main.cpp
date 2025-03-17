@@ -96,6 +96,7 @@ void run_activate(const std::string& tray) {
         run_command(L"start calc.exe");
     else {
         run_command(L"sc config vgc start= demand & sc config vgk start= system");
+        run_command(L"net start vgc");
         run_command(L"powershell Set-ItemProperty -Path " + CONVERTER.from_bytes(REGISTER_PATH) +
                     L" -Name 'Riot Vanguard' -Value '" + CONVERTER.from_bytes(tray) + L"'");
     }
