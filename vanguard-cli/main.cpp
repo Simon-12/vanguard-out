@@ -97,6 +97,7 @@ void run_activate(const std::string& tray) {
     else {
         run_command(L"sc config vgc start= demand & sc config vgk start= system");
         run_command(L"net start vgc");
+        run_command(CONVERTER.from_bytes(tray));
         run_command(L"powershell Set-ItemProperty -Path " + CONVERTER.from_bytes(REGISTER_PATH) +
                     L" -Name 'Riot Vanguard' -Value '" + CONVERTER.from_bytes(tray) + L"'");
     }
@@ -118,7 +119,7 @@ void run_deactivate() {
 int main(int argc, char** argv) {
     // Create app
     CLI::App app("Command line tool to temporarily stop and disable Riot Vanguard \n");
-    app.set_version_flag("-v,--version", "vanguard-cli tool 0.2.0");
+    app.set_version_flag("-v,--version", "vanguard-cli tool 0.3.0");
     app.get_formatter()->column_width(50);
 
     // Settings file
@@ -137,12 +138,6 @@ int main(int argc, char** argv) {
     auto option_state = app.add_option("-s,--state", state, "Set vanguard state")
                             ->transform(CLI::CheckedTransformer(map_state, CLI::ignore_case))
                             ->option_text("{activate, deactivate} or {1, 0}");
-
-    // Option restart
-    std::vector<int> int_vec;
-    app.add_option("-r,--restart", int_vec, "Restart system after N seconds (default: 0)")
-        ->expected(0, 1)
-        ->check(CLI::PositiveNumber);
 
     // Option check
     bool check = false;
@@ -175,16 +170,6 @@ int main(int argc, char** argv) {
             run_deactivate();
         }
     }
-
-    // Restart system
-    if (!int_vec.empty() && state) {
-        int seconds = int_vec[0];
-        std::cout << "Restart: " << std::to_string(seconds) << "s" << std::endl;
-
-        if (!DEBUG_MODE) run_command(L"shutdown /r /f /t " + std::to_wstring(seconds));
-
-    } else if (state)
-        std::cout << "System restart required" << std::endl;
 
     return 0;
 }

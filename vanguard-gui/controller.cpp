@@ -2,7 +2,6 @@
 
 Controller::Controller(const QString &path, QObject *parent) : QObject{parent} {
     m_state = true;  // Default
-    m_restart = false;
     m_disabled = false;
     m_process = new QProcess(this);
     m_path = path;
@@ -21,19 +20,7 @@ void Controller::changeState(const bool state) {
 
     // Change state
     m_state = state;
-    m_restart = state;
     emit stateChanged();
-    emit restartChanged();
-}
-
-void Controller::restartSystem() {
-    // Run cli
-    m_process->setArguments(QStringList() << "-s1"
-                                          << "-r");
-    runProcess();
-
-    m_restart = false;
-    emit restartChanged();
 }
 
 void Controller::addAutostart() {

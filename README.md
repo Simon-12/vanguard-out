@@ -11,9 +11,8 @@ If you don't like that Riot Vanguard is running in the background on your system
 The tool is not perfect, but it does the job. Feedback and suggestions are welcome.
 
 - Disable vanguard and stop from the tray.
-- Re-enable it when you want to play (restart system required).
+- Re-enable it when you want to play.
 - Add shortcut to startup folder, so vanguard is locked out on every system start.
-- Restart system command included.
 - Use a small command line interface.
 - Or use a simple user interface.
 
@@ -25,7 +24,6 @@ Options:
   -h,--help                                       Print this help message and exit
   -v,--version                                    Display program version information and exit
   -s,--state {activate, deactivate} or {1, 0}     Set vanguard state
-  -r,--restart INT:POSITIVE                       Restart system after N seconds (default: 0)
   -c,--check                                      Check current state and activate or deactivate vanguard
 ```
 
@@ -33,7 +31,6 @@ Options:
 ```
 activate:                 vanguard-cli.exe --state activate
 deactivate:               vanguard-cli.exe --state deactivate
-activate with restart:    vanguard-cli.exe --state activate --restart
 ```
 
 #### Shortcut for Startup folder with PowerShell commands
@@ -51,9 +48,10 @@ $Shortcut.Save();
 ##### Activate
 ```
 sc config vgc start= demand & sc config vgk start= system
+net start vgc
 powershell Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Riot Vanguard" -Value "C:\Program Files\Riot Vanguard\vgtray.exe"
-```
 
+```
 ##### Deactivate
 ```
 sc config vgc start= disabled & sc config vgk start= disabled & net stop vgc & net stop vgk & taskkill /IM vgtray.exe

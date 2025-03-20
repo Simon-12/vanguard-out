@@ -7,13 +7,12 @@ import QtQuick.Controls.Universal
 ApplicationWindow {
     id: root
     minimumWidth: 240
-    minimumHeight: 270
+    minimumHeight: 240
     maximumWidth: 240
-    maximumHeight: 270
+    maximumHeight: 240
     visible: true
     title: "vanguard-out"
-    flags: Qt.Window | Qt.WindowTitleHint | Qt.CustomizeWindowHint | Qt.WindowSystemMenuHint
-           | Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
+    flags: Qt.Window | Qt.WindowTitleHint | Qt.CustomizeWindowHint | Qt.WindowSystemMenuHint | Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
 
     ColumnLayout {
         anchors.fill: parent
@@ -53,15 +52,6 @@ ApplicationWindow {
         }
 
         Button {
-            id: restartButton
-            text: "Restart System"
-            font.pointSize: 14
-            enabled: controller.restart
-            Layout.fillWidth: true
-            onClicked: dialogRestart.open()
-        }
-
-        Button {
             text: "Add to Autostart"
             font.pointSize: 14
             Layout.fillWidth: true
@@ -77,27 +67,13 @@ ApplicationWindow {
 
         MessageDialog {
             id: dialogSave
-            text: "Warning!\n\n" + "Vanguard state has been changed but not saved."
-                  + "\n\n\n\n\n\n\n\n\n\n" // fill height
+            text: "Warning!\n\n" + "Vanguard state has been changed but not saved." + "\n\n\n\n\n\n\n\n\n\n" // fill height
             buttons: MessageDialog.Ok | MessageDialog.Ignore
             onButtonClicked: function (button, role) {
                 switch (button) {
                 case MessageDialog.Ignore:
                     root.forceClose = true
                     root.close()
-                    break
-                }
-            }
-        }
-
-        MessageDialog {
-            id: dialogRestart
-            text: "Restart System Now?" + "\n\n\n\n\n\n\n\n\n\n" // fill height
-            buttons: MessageDialog.Ok | MessageDialog.Cancel
-            onButtonClicked: function (button, role) {
-                switch (button) {
-                case MessageDialog.Ok:
-                    controller.restartSystem()
                     break
                 }
             }
@@ -116,8 +92,7 @@ ApplicationWindow {
             anchors.fill: parent
 
             Label {
-                text: "<font size='+1'><center><b>" + "vanguard-out"
-                      + "</b></font></center>" + "<center>Version: 0.2.0</center>"
+                text: "<font size='+1'><center><b>" + "vanguard-out" + "</b></font></center>" + "<center>Version: 0.3.0</center>"
                       + "<br>" + "Tool to temporarily stop and disable Riot Vanguard"
                 font.pointSize: 10
                 textFormat: Text.RichText
@@ -136,15 +111,13 @@ ApplicationWindow {
             Button {
                 text: "Website"
                 Layout.fillWidth: true
-                onClicked: Qt.openUrlExternally(
-                               "https://github.com/Simon-12/vanguard-out")
+                onClicked: Qt.openUrlExternally("https://github.com/Simon-12/vanguard-out")
             }
 
             Button {
                 text: "Report Issues"
                 Layout.fillWidth: true
-                onClicked: Qt.openUrlExternally(
-                               "https://github.com/Simon-12/vanguard-out/issues")
+                onClicked: Qt.openUrlExternally("https://github.com/Simon-12/vanguard-out/issues")
             }
         }
     }
