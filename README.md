@@ -5,10 +5,7 @@ Tool to temporarily stop and disable Riot Vanguard.
 ![icon](./vanguard-gui/icon.png)
 
 > [!WARNING]
-> **Warning:**
-> With the release of [Vanguard on-demand](https://www.riotgames.com/en/news/vanguard-on-demand), this tool is deprecated, but it will still remain available here for others.  
-> Be aware that Vanguard is a kernel-level tool with higher privileges than your own user account.  
-> Read this: [Why You Should Reconsider Playing League of Legends: The Risks of Kernel-Level Anti-Cheat Software](https://gist.github.com/stdNullPtr/2998eacb71ae925515360410af6f0a32).
+> With the release of [Vanguard on-demand](https://www.riotgames.com/en/news/vanguard-on-demand), this tool is deprecated, but it will still remain available here for others. Be aware that Vanguard is a kernel-level tool with higher privileges than your own user account. Read this: [Why You Should Reconsider Playing League of Legends: The Risks of Kernel-Level Anti-Cheat Software](https://gist.github.com/stdNullPtr/2998eacb71ae925515360410af6f0a32).
 
 ## Features
 
