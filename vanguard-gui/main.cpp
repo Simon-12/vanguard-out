@@ -22,12 +22,12 @@ int main(int argc, char *argv[]) {
 
     // Start engine and set controller property
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("controller", &controller);
+    engine.rootContext()->setContextProperty("_controller", &controller);
 
     // Start qml
     QObject::connect(
         &engine, &QQmlApplicationEngine::objectCreationFailed, &app, []() { QCoreApplication::exit(-1); }, Qt::QueuedConnection);
-    engine.loadFromModule("qml.components", "Main");
+    engine.loadFromModule("VanguardGui", "Main");
 
     return app.exec();
 }
